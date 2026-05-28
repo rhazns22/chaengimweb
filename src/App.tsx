@@ -61,7 +61,7 @@ const appScreens = [
     label: 'D. 맞춤 추천',
     title: '맞춤 추천',
     subtitle: '조건 매칭 점수와 추천 이유',
-    description: 'AI가 자격을 확정하지 않도록 제한하고, 조건 매칭 근거를 참고용 설명으로 제공합니다.',
+    description: 'AI가 최종 대상 여부를 판단하지 않도록 제한하고, 조건 매칭 근거를 참고용 설명으로 제공합니다.',
     image: screenRecommend,
   },
   {
@@ -429,7 +429,7 @@ export default function App() {
             <a href="#retrospective" className="transition hover:text-primary-500">회고</a>
           </nav>
           <MotionLink
-            href="https://github.com"
+            href="https://github.com/rhazns22"
             className="inline-flex items-center gap-2 rounded-full bg-[#2F3441] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-primary-600"
             external
           >
@@ -445,7 +445,7 @@ export default function App() {
             <Reveal>
               <p className="mb-5 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-primary-500 shadow-sm ring-1 ring-[#ECEEF5]">
                 <Sparkles className="h-4 w-4" />
-                정부 혜택 관리 모바일 PWA
+                정부 혜택 탐색 · 신청 준비 관리 · AI 조건 매칭
               </p>
               <h1 className="text-[34px] font-extrabold leading-[1.18] tracking-normal text-[#182033] sm:text-6xl lg:text-[68px]">
                 놓치기 쉬운 정부 혜택,
@@ -454,8 +454,8 @@ export default function App() {
               </h1>
               <p className="mt-7 max-w-2xl whitespace-pre-line text-lg leading-9 text-[#596273] sm:text-xl">
                 {`나에게 맞는 혜택을 찾고,
-신청 준비와 마감 일정까지
-한 곳에서 관리하는 모바일 PWA.`}
+신청 준비와 마감 일정까지 한 곳에서 관리하는
+모바일 앱형 PWA 프로젝트입니다.`}
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <MotionLink href="#screens" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-primary-500 px-7 py-4 font-bold text-white shadow-[0_16px_36px_rgba(91,120,240,0.22)] transition hover:bg-primary-600">
@@ -493,6 +493,20 @@ export default function App() {
               <div className="absolute bottom-20 left-8 hidden rounded-2xl bg-white px-5 py-4 shadow-[0_18px_45px_rgba(31,41,55,0.1)] ring-1 ring-[#ECEEF5] lg:block">
                 <p className="text-xs font-bold text-[#8B909E]">내 신청 보드</p>
                 <p className="mt-1 text-2xl font-extrabold text-[#2F3441]"><CountUpNumber value={2} suffix="건" /></p>
+              </div>
+              <div className="mx-auto mt-8 grid max-w-sm grid-cols-3 gap-3 lg:hidden">
+                {[
+                  ['추천 혜택', 3],
+                  ['마감 임박', 2],
+                  ['내 신청 보드', 2],
+                ].map(([label, value]) => (
+                  <div key={label as string} className="rounded-2xl bg-white px-3 py-4 text-center shadow-sm ring-1 ring-[#ECEEF5]">
+                    <p className="text-[11px] font-bold text-[#8B909E]">{label}</p>
+                    <p className="mt-1 text-xl font-extrabold text-primary-500">
+                      <CountUpNumber value={value as number} suffix="건" />
+                    </p>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </div>
@@ -638,7 +652,7 @@ export default function App() {
           <div className="mx-auto max-w-7xl">
             <SectionIntro
               eyebrow="AI PRINCIPLE"
-              title="AI가 자격을 판정하지 않도록 설계했습니다."
+              title="AI가 최종 대상 여부를 판단하지 않도록 설계했습니다."
               description={`챙김의 AI 추천은 최종 대상 여부를 보장하는 기능이 아닙니다.
 추천 후보는 백엔드의 Rule-based Scoring으로 계산하고,
 Gemini API는 추천 이유를 이해하기 쉽게 설명하는 역할로 제한했습니다.`}
@@ -783,12 +797,12 @@ Gemini API는 추천 이유를 이해하기 쉽게 설명하는 역할로 제한
             <SectionIntro
               eyebrow="LIMITATIONS"
               title="확인해야 할 경계와 다음 단계"
-              description={`챙김은 정부 신청을 대행하거나 자격을 확정하는 서비스가 아닙니다.
+              description={`챙김은 공식 기관의 최종 확인 절차를 대신하지 않습니다.
 MVP 이후에는 공식 데이터 최신성 검증, 실제 기기 QA, 알림 고도화가 추가로 필요합니다.`}
             />
             <div className="grid gap-5 md:grid-cols-3">
               {[
-                ['공식 확인 필요', '추천 결과는 참고용이며 최종 자격과 신청 가능 여부는 공식 기관에서 확인해야 합니다.'],
+                ['공식 확인 필요', '추천 결과는 참고용이며 실제 대상 여부와 신청 가능 여부는 공식 기관에서 확인해야 합니다.'],
                 ['데이터 최신성', '공공 데이터 변경 주기와 API 응답 예외를 운영 기준으로 더 촘촘히 검증해야 합니다.'],
                 ['실기기 QA', 'iOS Safari와 Android Chrome의 PWA 설치, 알림, 화면 높이 차이를 추가 확인해야 합니다.'],
               ].map(([title, description]) => (
@@ -817,16 +831,16 @@ MVP 이후에는 공식 데이터 최신성 검증, 실제 기기 QA, 알림 고
 모바일 PWA 프로젝트입니다.`}
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <a href="#screens" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 font-extrabold text-primary-600">
+                <a href="https://chaengim.vercel.app/" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 font-extrabold text-primary-600">
                   앱 데모 보기
                   <Smartphone className="h-5 w-5" />
                 </a>
-                <a href="https://github.com" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white/12 px-6 py-4 font-extrabold text-white ring-1 ring-white/20">
+                <a href="https://github.com/rhazns22" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white/12 px-6 py-4 font-extrabold text-white ring-1 ring-white/20">
                   GitHub 보기
                   <Code2 className="h-5 w-5" />
                 </a>
-                <a href="#tech" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white/12 px-6 py-4 font-extrabold text-white ring-1 ring-white/20">
-                  README 보기
+                <a href="https://pjewep.vercel.app/" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white/12 px-6 py-4 font-extrabold text-white ring-1 ring-white/20">
+                  포트폴리오 보기
                   <Bookmark className="h-5 w-5" />
                 </a>
               </div>
@@ -839,9 +853,16 @@ MVP 이후에는 공식 데이터 최신성 검증, 실제 기기 QA, 알림 고
       </main>
 
       <footer className="border-t border-[#ECEEF5] bg-white px-5 py-10 sm:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm text-[#8B909E] sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-bold text-[#2F3441]">챙김 PWA Case Study</p>
-          <p>최종 대상 여부와 실제 신청 가능 여부는 공식 기관에서 확인해야 하는 포트폴리오 MVP입니다.</p>
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-[#8B909E] lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p className="font-bold text-[#2F3441]">챙김 PWA Case Study</p>
+            <p className="mt-1">최종 대상 여부와 실제 신청 가능 여부는 공식 기관에서 확인해야 하는 포트폴리오 MVP입니다.</p>
+          </div>
+          <div className="flex flex-wrap gap-3 font-semibold">
+            <a href="https://github.com/rhazns22" target="_blank" rel="noreferrer" className="transition hover:text-primary-500">GitHub</a>
+            <a href="https://pjewep.vercel.app/" target="_blank" rel="noreferrer" className="transition hover:text-primary-500">Portfolio</a>
+            <a href="mailto:pje698112@naver.com" className="transition hover:text-primary-500">Email</a>
+          </div>
         </div>
       </footer>
     </div>
