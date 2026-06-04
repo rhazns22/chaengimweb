@@ -429,7 +429,7 @@ export default function App() {
             <a href="#retrospective" className="transition hover:text-primary-500">회고</a>
           </nav>
           <MotionLink
-            href="https://github.com/rhazns22"
+            href="https://github.com/rhazns22/chaengim"
             className="inline-flex items-center gap-2 rounded-full bg-[#2F3441] px-4 py-2.5 text-sm font-bold text-white transition hover:bg-primary-600"
             external
           >
@@ -453,9 +453,7 @@ export default function App() {
                 이제 챙김이 정리해드릴게요.
               </h1>
               <p className="mt-7 max-w-2xl whitespace-pre-line text-lg leading-9 text-[#596273] sm:text-xl">
-                {`나에게 맞는 혜택을 찾고,
-신청 준비와 마감 일정까지 한 곳에서 관리하는
-모바일 앱형 PWA 프로젝트입니다.`}
+                {`나에게 맞는 혜택을 찾고,신청 준비와 마감 일정까지 한 곳에서 관리하는모바일 앱형 PWA 프로젝트입니다.`}
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <MotionLink href="#screens" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-primary-500 px-7 py-4 font-bold text-white shadow-[0_16px_36px_rgba(91,120,240,0.22)] transition hover:bg-primary-600">
@@ -587,11 +585,10 @@ export default function App() {
                       aria-selected={active}
                       whileTap={{ scale: 0.98 }}
                       transition={{ duration: 0.15 }}
-                      className={`w-full rounded-2xl border bg-white p-5 text-left transition focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary-100 ${
-                        active
-                          ? 'border-primary-300 shadow-md shadow-primary-100/60'
-                          : 'border-[#ECEEF5] text-[#6E7584] hover:border-primary-200'
-                      }`}
+                      className={`w-full rounded-2xl border bg-white p-5 text-left transition focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary-100 ${active
+                        ? 'border-primary-300 shadow-md shadow-primary-100/60'
+                        : 'border-[#ECEEF5] text-[#6E7584] hover:border-primary-200'
+                        }`}
                     >
                       <p className={`text-sm font-bold ${active ? 'text-primary-500' : 'text-[#8B909E]'}`}>{screen.label}</p>
                       <h3 className="mt-2 text-xl font-extrabold">{screen.title}</h3>
@@ -835,7 +832,7 @@ MVP 이후에는 공식 데이터 최신성 검증, 실제 기기 QA, 알림 고
                   앱 데모 보기
                   <Smartphone className="h-5 w-5" />
                 </a>
-                <a href="https://github.com/rhazns22" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white/12 px-6 py-4 font-extrabold text-white ring-1 ring-white/20">
+                <a href="https://github.com/rhazns22/chaengim" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white/12 px-6 py-4 font-extrabold text-white ring-1 ring-white/20">
                   GitHub 보기
                   <Code2 className="h-5 w-5" />
                 </a>
@@ -859,7 +856,7 @@ MVP 이후에는 공식 데이터 최신성 검증, 실제 기기 QA, 알림 고
             <p className="mt-1">최종 대상 여부와 실제 신청 가능 여부는 공식 기관에서 확인해야 하는 포트폴리오 MVP입니다.</p>
           </div>
           <div className="flex flex-wrap gap-3 font-semibold">
-            <a href="https://github.com/rhazns22" target="_blank" rel="noreferrer" className="transition hover:text-primary-500">GitHub</a>
+            <a href="https://github.com/rhazns22/chaengim" target="_blank" rel="noreferrer" className="transition hover:text-primary-500">GitHub</a>
             <a href="https://pjewep.vercel.app/" target="_blank" rel="noreferrer" className="transition hover:text-primary-500">Portfolio</a>
             <a href="mailto:pje698112@naver.com" className="transition hover:text-primary-500">Email</a>
           </div>
